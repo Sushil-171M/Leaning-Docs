@@ -647,4 +647,42 @@ go()
 Loads a specific URL from the history list
 
 
- 
+ ****************************************** JS Coding Question ***********************************************
+
+ Coding Interview Questions:
+
+Write code to determine whether or not a string is a palindrome   && for Anagram also.
+Generate any permutation of a String in an iterative and recursive manner?
+What is the best way to find the first non-repeated character in a String?
+
+Why is a Char array better than a String for storing passwords?  ->  
+
+    Using a char[] for storing passwords is considered more secure because it gives you control over the contents in memory, allowing you to overwrite and erase the password data once it is no longer needed. In contrast, a String is immutable and can leave the password lingering in memory for an indeterminate amount of time, increasing the risk of exposure.
+
+How can you find the duplicate number in an array of numbers from 1 to 100?
+
+Find the number that is not present in the second array given two arrays: 1,2,3,4,5 and 2,3,1,0,5.
+
+How can you find the top two most significant numbers in an array?
+
+In a single pass, how do you find the middle element of a linked list?
+
+In a single pass, how do you find the 3rd element from the bottom?
+
+How do you reverse a singly linked list?
+
+How can you figure out how deep a binary tree is?
+
+Write a code to determine whether or not a tree is a binary search tree.
+
+In a binary tree, how do you perform preorder traversal?
+
+Write a programme that uses quick sort, Binary sort, Bubble sort, Insertion sort to sort numbers in a specific order.
+
+How do you sort number in JS?
+
+Create a code to implement Bubble Sort.
+
+In a range of min to max, write code for generate random numbers.
+
+Create an algorithm to determine the frequency in which a word appears in an article.
