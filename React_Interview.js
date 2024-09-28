@@ -2,14 +2,14 @@
 
 ----------------------------------------------------React, advantages, Limitation, Virtual DOM -------------------------------------------
 What is React ??
-   React is a javascript library building user interfaces without wrting complex JS code.
+   React is a javascript library which is used for building user interfaces without wrting complex JS code.
 It follows the Component based architecture.
 
 Why React ??
- 1) Component Based Architecture : We can break a big component into smaller component and make it reusable also, later we can merge all these component together for  the result.
+ 1) Component Based Architecture : We can break a big component into smaller component and make it reusable also, later we can merge all these small small component together for  the result.
  2) Use of Virtual DOM : 
                    DOM :  DOM stands for ‘Document Object Model’. 
-                   it is a tree structured representation of the HTML elements that are present in a webpage. DOM represents the entire UI 			of your application. 
+                   it is a tree structured representation of the HTML elements that are present in a webpage. DOM represents the entire UI of your application. 
                    The DOM is represented as a tree data structure.    
         Disadvantages of real DOM :
             Every time the DOM gets updated, the updated element and its children have to be rendered again to update the UI of our page. 
@@ -30,9 +30,9 @@ Note : Manipulating Real DOM is slow, but manipulating Virtual DOM is fast as no
 
 When anything new is added to the application, a virtual DOM is created and it is lightweight copy of Real-DOM.
 React maintains two Virtual DOM at each time, one contains the updated Virtual DOM and one which is just the pre-update version of this updated Virtual DOM.
- Now it compares the pre-update version with the updated Virtual DOM and figures out what exactly has changed in the DOM like which components have been changed. This process of comparing the current Virtual DOM tree with the previous one is known as ‘diffing’. Once React finds out what exactly has changed then React-DOm updates those objects only, on real DOM. 
+ Now it compares the pre-update version with the updated Virtual DOM and figures out what exactly has changed in the DOM like which components have been changed. This process of comparing the current Virtual DOM tree with the previous one is known as ‘diffing’. Once React finds out what exactly has changed then React-DOM updates those objects only, on real DOM. 
 
-Note:  It is React-DOm's task to update the real DOM not react.
+Note:  It is React-DOM's task to update the real DOM not react.
 
 React uses something called batch updates to update the real DOM. It just means that the changes to the real DOM are sent in batches instead of sending any update for a single change in the state of a component. 
 
@@ -42,12 +42,12 @@ That is why React is much faster than other frameworks like anular or vue.
 
 --------------------------------------------Differences between Virtual DOM and Real DOM---------------------------------------------
 Virtual DOM	                                                                                            Real DOM 
-It is a lightweight copy of the original DOM	                                                    It is a tree representation of HTML elements
-It is maintained by JavaScript libraries	                                                        It is maintained by the browser after parsing HTML elements
-After manipulation it only re-renders changed elements	                                            After manipulation, it re-render the 															entire DOM
+It is a lightweight copy of the Real DOM	                                                    It is a tree representation of HTML elements
+It is maintained by JavaScript libraries	                                                     It is maintained by the browser after parsing HTML elements
+After manipulation it only re-renders changed elements	                                            After manipulation, it re-render the entire DOM
 Updates are lightweight	                                                                            Updates are heavyweight
-Performance is fast and UX is optimised	                                                             Performance is slow and the UX 															quality is low
-Highly efficient as it performs batch updates	                                                     Less efficient due to re-rendering of 														DOM after each update
+Performance is fast and UX is optimised	                                                             Performance is slow and the UX quality is low
+Highly efficient as it performs batch updates	                                                     Less efficient due to re-rendering of DOM after each update
 
 
 --------------------------------------------------------------------------**Limitation of React**----------------------------------------------
@@ -60,10 +60,10 @@ Highly efficient as it performs batch updates	                                  
 
 -------------------------------------------------------------------** JSX **-----------------------------------------------------------------------
 
-JSX : JSX stand for javascript XML. It is a templating langauge which allows us to write HTML code in inside JS file.
+JSX : JSX stand for javascript XML. It is a templating langauge which allows us to write HTML code in inside JS file/code.
 
 1) In react , We can return a single JSX only,  if u want to return multiple then u have to combine in a single elemnent using div or <> tag.
-2) JSX should
+
 
 
 ---------------------------------------------------------------** Diffing algorithm ---------------------------------------------------------------
@@ -72,7 +72,8 @@ Diffing short for Differences Algorithm is used to differentiate the DOM Tree fo
 
 How Diffing Algorithm Works?
         First, the content is rendered on the webpage and the DOM tree is created.
-        On change in any content due to user interaction or change in data from API,React works on observable patterns, hence, whenever 	there is a change in the state, it updates the nodes in the virtual DOM
+        On change in any content due to user interaction or change in data from API,React works on observable patterns, hence, whenever 	
+there is a change in the state, it updates the nodes in the virtual DOM
         In reconcilliation phase,  the old tree is compared to the newest version to determine the number of changes needed for updation.
         After determining the changes a set of optimized and minimal instruction is created to implement on the real DOM.
         These changes are then implemented and only content that changed is re-rendered on the web pages.
@@ -87,8 +88,8 @@ Advantages of Diffing Algorithm:
     Results in faster respose while change by reducing the unwated and unnecessary re-renderings.
 
 -----------------------------------------------------------React Hooks ----------------------------------------------------------------------------
-  React Hooks provide ability to use , states and other React features with the help of functional component wihtout writing class components.   
-  Hooks are introduced in React 16.8.
+  React Hooks provide ability to use ,states and other React features with the help of functional component wihtout writing class components.   
+  Hooks are introduced in React 16.8.                                    
 
   Types of React Hooks
     The Built-in React Hooks are:
@@ -129,7 +130,7 @@ The three phases are: Mounting, Updating, and Unmounting.
 1. Initialization Phase : 
     In this phase, the developer has to define the props and initial state of the component this is generally done in the constructor of the class component.
 
-1) Mounting Phase :  Mounting is the first phase of the component lifecycle when the initialization of the component is completed and the component is mounted on the DOM and rendered for the first time on the webpage.
+1) Mounting Phase :  Mounting is the first phase of the component lifecycle. In this Phase the component is rendered for the first time on the webpage and  mounted on the DOM.
   ex->  
    constructor():
      Method to initialize state and bind methods. Executed before the component is mounted.
@@ -141,10 +142,10 @@ The three phases are: Mounting, Updating, and Unmounting.
 2) Updating Phase : A component is updated whenever there is a change in the component's state or props.
    ex->
       componentDidUpdate() Function :
-            Similarly this function is invoked after the component is rerendered i.e. this function gets invoked once after the render() function is executed after the updation of State or Props.  
+            Similarly this function is invoked after the component is re-rendered i.e. this function gets invoked once after the render() function is executed after the updation of State or Props.  
             
 3) Unmounting phase :  The next phase in the lifecycle is when a component is removed from the DOM
-     The componentWillUnmount method is called when the component is about to be removed from the DOM.
+     The componentWillUnmount() method is called when the component is about to be removed from the DOM.
 
 ---------------------------------------------------------------------** ES6 **-----------------------------------------------------
 
@@ -162,10 +163,10 @@ Why Should I Learn ES6?
     Modules
     Ternary Operator
     Spread Operator
-
+    rest parameter
 ---------------------------------------------------------------** States and Props **------------------------------------------------    
 
-state : State is the objects which hold the data about the component. EVerything in JS is object. state cannot be accessed and modified outside the component, and can only be used inside the component.
+state : State is an objects which hold the data about the component. EVerything in JS is object. state cannot be accessed and modified outside the component, and can only be used inside the component.
 Props : props are the way to pass the data from one component to another component.
 
  PROPS                                                                                       STATE
@@ -176,7 +177,8 @@ Props can be used with state and functional components.	                        
 Props are read-only.	                                                                    The state is both read and write.
 
 -------------------------------------------------------** Babel and webpack **-----------------------------------------------------------
-Babel is used to transpile the JavaScript code, making it compatible with older browsers, while Webpack is used to bundle and optimize the code
+Babel is used to transpile the JavaScript code, which can be understand by older browsers, 
+while Webpack is used to bundle and optimize the code.
 
 
 ------------------------------------------------------ Hooks with Example ----------------------------------------------------------------
@@ -209,14 +211,15 @@ Babel is used to transpile the JavaScript code, making it compatible with older 
             }
         })
 
-Prop Drilling :  Prop drilling refers to the process of passing data from a parent component to deeply nested child components by passing props through intermediate components that do not need the data themselves.
+Prop Drilling :  Prop drilling refers to the process of passing data from a parent component to deeply nested child components by passing props through intermediate components in which
+  that data is not being used.
 
 to avoid prop drilling situation to use useContext hooks.
 
 Reasons to Avoid Prop Drilling : 
        ***** Performance: Prop drilling can lead to unnecessary re-renders of intermediate components that don’t use the props themselves. This can degrade the performance of the application.
     Maintenance Complexity: Prop drilling makes components tightly coupled because intermediate components have to pass down props that they don't actually use. 
-    Scalability Issues: As the component hierarchy deepens, prop drilling can lead toerror-prone code. It can be difficult to track which component needs which props, especially when the data needs to be passed through many layers.
+    Scalability Issues: As the component hierarchy deepens, prop drilling can lead to error-prone code. It can be difficult to track which component needs which props, especially when the data needs to be passed through many layers.
     Code Readability: Prop drilling can significantly reduce the readability of the code.
   
 
@@ -246,12 +249,12 @@ NOTE: At dispatch, the reducer function still holds the old value. This means th
     Performance Hooks :::
 
 5) useCallback()::     
-    The useCallback hook is a performance optimization mechanism in React that helps prevent unnecessary re-renders of child components when their parent component re-renders. 
+    The useCallback hook is a performance optimization mechanism in React that helps to prevent unnecessary re-renders of child components when their parent component re-renders. 
     It achieves this by memoizing (caching) callback functions based on their dependencies. 
     If the dependencies haven't changed, the same function reference is returned, avoiding the creation of a new function object on every render.
 
     When to Use useCallback:
-        Passing callbacks as props to child components: When a parent component passes a callback function as a prop to a child component, and the child component relies on the same callback reference across renders (e.g., for event handlers), useCallback can prevent the child from re-rendering unnecessarily due to a change in the parent's state or props.
+        Passing callbacks as props to child components: When a parent component passes a callback function as a prop to a child component, and the child component relies on the same callback reference across renders (e.g., for event handlers), useCallback can prevent the child component from re-rendering unnecessarily due to a change in the parent's state or props.
         Callbacks that are expensive to create: If creating the callback function involves complex calculations or fetching data, using useCallback can improve performance by ensuring it's only created when its dependencies change.
         
 
@@ -282,8 +285,8 @@ NOTE: At dispatch, the reducer function still holds the old value. This means th
 
      Link : ( https://medium.com/@amanrags/usecallback-hook-in-react-2b9346380c04 )
      
-6) useMemo :: usememo is react hooks which is used for performance optimization. 
-             The useMemo hook in React allows you to memorize expensive computations so that they are not recalculated on every render. This is helpful when you have computationally heavy calculations that depend on certain variables, and you want to avoid performing these calculations unnecessarily when the component re-renders.
+6) useMemo :: useMemo is react hooks which is used for performance optimization. 
+             The useMemo hook in React allows you to memoize expensive computations so that they are not recalculated on every render. This is helpful when you have computationally heavy calculations that depend on certain variables, and you want to avoid performing these calculations unnecessarily when the component re-renders.
 
              Ex-> Filteing , Sorting me use karte hai mostly.
                   const UserList = ({ users, filter }) => {
@@ -308,7 +311,7 @@ NOTE: At dispatch, the reducer function still holds the old value. This means th
           
 Reference ::  https://www.freecodecamp.org/news/how-to-work-with-usememo-in-react/#what-is-usememo
 
-7) useRef ::   In React.js, useRef is a hook that allows you to create a mutable reference to an element or a value. Unlike the useState hook, updating a useRef does  not trigger a re-render of the component. It's commonly used for accessing and managing DOM elements directly, storing persistent values, or working with values that should not trigger a re-render.
+7) useRef ::   In React.js, useRef is a hook that allows you to create a mutable reference to an element or a value from DOM. Unlike the useState hook, updating a useRef does  not trigger a re-render of the component. It's commonly used for accessing and managing DOM elements directly, storing persistent values, or working with values that should not trigger a re-render.
 
 
 Primary Uses of useRef
@@ -369,65 +372,15 @@ Single page application
 Long back when a client side made a request to server , server used to send HTML page.
 now  Javascript run in the browser on the loaded page and manipulate the HTML structure(DOM) of the page
 
- 
-
-Why React : React follow these 2 approach that why react is so popular.
-
-1.  Component Driven approach : I can break my entire application to small small component and can write code for it and later we can merge it.
-
-2.  Declarative Approach :
-
-JSX : JSX stand for javascript XML. It allows us to write the HTML code in JS.
-
-React is converting these JSX into javascript behind the scene which can be understand by browser. (By using babel)
-
- 
-
-Every Javascript function return 1 value at a time. That why in react, we need a parent div or react fragment which enclose all the child element.
-
- 
-
-Props:
-
-    Props are an objects which can be used to passing the data to another component.
-
- 
-
-State:
-
-A state are object that hold all the data about the component, that cannot be accessed and modified outside the component, and can only be used inside the component.
-
-
-Why key attribute is important :  In React, the key attribute is used to uniquely identify the elements in a list. When a list is rendered, React tracks the identity of each element, so that it can efficiently update the list if the elements change.
-
+Why key attribute is important :  In React, the key attribute is used to uniquely identify the elements in the DOM. When a component is rendered, React tracks the identity of each element, so that it can efficiently update the node if the elements change.
 
 Reusable Components - Key Attribute
-
  
-
-image.png
- 
-
-
-Why  Split Component :  Splitting The Components
-
- 
-
-image.png
- 
-
- 
+Why Split Component :  Splitting The Components
 
 Composition :  Concept of Composition
 
 In React , building UI from smaller building block/component known as composition
-
- 
-
-image.png
- 
-
- 
 
 Nested Component :
 
@@ -436,11 +389,24 @@ Nested Component :
 
 Wrapper Component :
 
-a wrapper component refers to a component that encapsulates another component or elements within it.
-
+A wrapper component is a React component that 'wraps' around another component, providing a layer of abstraction that can manage state, props, and behavior. 
+This pattern is beneficial when you want to reuse logic across different components in your app. By wrapping components, you can avoid duplicating code and keep your components focused on their primary responsibilities.
  This encapsulation can serve various purposes such as adding extra functionality, modifying behavior, or simply styling the wrapped content.
 
- 
+( https://www.dhiwise.com/post/designing-high-performance-uis-with-react-component-wrapper )
+
+ex->
+
+App.js
+
+   <WrapperComponent>
+       <Header />
+   </WrapperComponent>
+
+
+WrapperComponent.js:
+   -take a props  => {children}
+   - children will be Header component
 
 One-way data binding:
 
@@ -450,133 +416,95 @@ React achieves one-way data binding by using state and props.
 
 Two way binding :
 
-    Two-way data binding allows bidirectional data flow, meaning that changes in the UI automatically update the component’s state, and changes in the state automatically update the UI. In React, two-way data binding is achieved using controlled components
+    Two-way data binding allows bidirectional data flow, meaning that changes in the UI automatically update the component’s state, and changes in the state automatically update the UI. In React, two-way data binding is achieved using controlled components.
 
-
-child to parent component
 Lifting state UP :
 
-Lifting state up is a technique where the state is moved to a common ancestor component, enabling sibling components to share and synchronize data. This approach allows for better communication between components and promotes a unidirectional data flow.
+    Lifting state up is a technique where the state is moved to a common ancestor component, enabling sibling components to share and synchronize data. This approach allows for better communication between components and promotes a unidirectional data flow.
 
- 
+********************************************controlled vs uncontrolled component************************************
 
-
-controlled vs uncontrolled component :
-
-In a controlled component, form data is handled by a React component. 
-The alternative is uncontrolled components, where form data is handled by the DOM itself.
+In a controlled component, form data is handled by a React component.  Using React state we can achieve this.
+In a uncontrolled components,form data is handled by the DOM itself. Using ref we can achieve this.
 
 
 stateless vs statefull component :
-
      The difference between stateful and stateless is that one has state, and the other doesn’t. That means the stateful components are keeping track of changing data, while stateless components always render the same thing or static things.
 
-
- 
-
 What happens when you don't use keys ?
-if the key is missing, React must search through the entire list to determine which component has changed.
-
-React will have to rely on other methods to determine which component has changed in the absence of keys. This can lead to performance issues and even unexpected bugs
-
- 
+       if the key is missing, React must search through the entire list to determine which component has changed. React will have to rely on other methods to determine which component has changed in the absence of keys. This can lead to performance issues and even unexpected bugs
 
 What is the advantage of using keys?
      React will easily identify the element which has been addded or updated or removed from the list. It increases the performance.
  
-
 Why you should not use index as keys?
-The array index is not a stable identifier as it can change based on the ordering or the addition/deletion of elements from the list. This can cause issues when React tries to update the list, as it may not be able to identify the correct element to update or delete.
-
- 
+    The array index is not a stable identifier as it can change based on the ordering or the addition/deletion of elements from the list. This can cause issues when React tries to update the list, as it may not be able to identify the correct element to update or delete.
 
 `value` prop on `select` should not be null. Consider using an empty string to clear the component or `undefined` for uncontrolled components.
 
- 
-
+****
 What is the main limitation of JSX?
-You can't return more than one "root" JSX element (you also can'ts store more than one "root" JSX element in a variable
+   You can't return more than one "root" JSX element (you also can'ts store more than one "root" JSX element in a variable
  We can avoid error using react fragement, enclose in root div or wrapper component.
 
- 
-
- 
-
+****
 How does useEffect hook works and solve the problem?
-useEffect hook is part of React’s Hooks API. The core principle of this hook is to let you perform side effects in your functional components. The useEffect hook is a smooth combination of React’s lifecycle methods like componentDidMount, componentDidUpdate and componentWillUnmount.
+      useEffect hook is part of React’s Hooks API. The core principle of this hook is to let you perform side effects in your functional components. The useEffect hook is a smooth combination of React’s lifecycle methods like componentDidMount, componentDidUpdate and componentWillUnmount.
 
- 
-
+****
 What the hell are cleanup functions in react? Super important concept to prevent memory leakage. [FAVOURITE INTERVIEW QUESTION]
 
-the cleanup function is an essential tool for managing resources in React applications, as it ensures that all operations performed by the effect are correctly closed. This not only protects our application from memory leaks, but also other potential issues.
+     the cleanup function is an essential tool for managing resources in React applications, as it ensures that all operations performed by the effect are correctly closed. This not only protects our application from memory leaks, but also other potential issues.
 
- 
-
+*****
 Why do we use React Memo? What are the advantages of React Memo?
-React. memo() is a Higher Order Component (HOC) that memoizes the passed in component along with the  props. It is used for performance optimization by preventing re-render of component unnecessary due to props or state changes.
-What is the difference between React memo and use memo?
-React. memo() and useMemo() are essential tools for performance  optimization . While React. memo() focuses on memoizing functional components to prevent unnecessary re-renders based on props,
- useMemo() is used to memoize expensive computations(sort,filter)  within functional components.
- 
+	React. memo() is a Higher Order Component (HOC) that memoizes the passed component along with the  props. It is used for performance optimization by preventing re-render of component unnecessary due to props or state changes.
 
+*****
+What is the difference between React memo and use memo?
+React. memo() and useMemo() are essential tools for performance  optimization . While React.memo() focuses on memoizing functional components to prevent unnecessary re-renders based on props, useMemo() is used to memoize expensive computations(sort,filter)  within functional components.
+ 
+******
 When should we not use React Memo?
  
-If the props are static or primitive, using React.memo for the child component will solve the problem. However, problems arise when the prop is not static and is an object.
- 
-
+   If the props are static or primitive, using React.memo for the child component will solve the problem. However, problems arise when the prop is not static and is an object.
 So, when parent component re-render and we have object/Array/function type props passed to the child component then using memo doesn’t solve our problem. Because, value of object will be new and child component will re-render. So, using React.memo to child component which takes object as a props doesn’t solve the re-rendering of child problem.
 We can solve this problem using useMemo().
 
- 
-
 useMemo =>
-
-In React useMemo Hook returns a memoized value and prevents the application from unnecessary re-renders. It is useful in heavy computations and processes when using functional components. It takes dependencies array as second argument to invoke useMemo() hook.
-
- 
+     In React useMemo Hook returns a memoized value and prevents the application from unnecessary re-renders. It is useful in heavy computations and processes when using functional components. It takes dependencies array as second argument to invoke useMemo() hook.
 
 What is useCallback hook , where to use , what is advantages ??
- 
-
 The useCallback hook is a built-in hook in React that lets you memoize a function by preventing it from being recreated on every render.
 
- 
-
 When you define a function inside a component, it is recreated on every render, even if the component’s state or props have not changed. This can lead to unnecessary re-renders, which can slow down your application’s performance. The useCallback hook helps you avoid this problem by memoizing the function and only recreating it when necessary(when dependencies array changed).
-
- 
 
 What is the second argument of usecallback? What does it do?
 Second argument of useCallback is dependencies array ,if any values in dependecies array changed so useCallback re-evalute the function.
  
-
+*******
 Why doesn't useState get re-initialized when the function component gets re-evaluated or "state gets initialized only once " why ??
- 
-
-  React preserves a component’s state for as long as it is a part of DOM tree . If it gets removed from DOM , then React discards its state.
-
- 
+   React preserves a component’s state for as long as it is a part of DOM tree . If it gets removed from DOM , then React discards its state.
 
 What is state scheduling ?
- 
-
 What is state batching . please explain with example
  
 Batching, introduced in React 18, allows React to group multiple state updates that occur within a single task or event handler into a single batch. This means that React won't re-render the component after each individual state update but will instead wait until the end of the batch to perform the re-render.
 
+******
 Higher Order COmponent ??
-  A higher-order component is a function that takes a component and returns a new component with enhanced functionality. It's essentially a function that wraps around a component to provide additional features or behavior.
+  A higher-order component is a function that takes a component as an argumnet and returns a new component with enhanced functionality. It's essentially a function that wraps around a component to provide additional features or behavior.
 
 Why HOCs ??
  - to share common functionality between components then we can create a HOC and share. similiar like prop Drilling.
  Suppose there is nested component. and many component using same function , then we have pass through props to avoid that we can use HOCs.
 
+*************************************************Bundling  Code Splitting************************************
 Bundling ??
- Bundling is the process of following imported files and merging them into a single file: a “bundle”. This bundle can then be included on a webpage to load an entire app at once.
+ Bundling is the process of following imported files and merging them into a single files: a “bundle”. This bundle can then be included on a webpage to load an entire app at once.
 
 Code Splitting :
-It allows you to split your JavaScript bundle into smaller chunks. With code splitting, you can only load the code that is needed in a particular context, reducing the initial load time and improving the overall user experience. 
+    It allows you to split your JavaScript bundle into smaller chunks. With code splitting, you can only load the code that is needed in a particular context, reducing the initial load time and improving the overall user experience. 
   Bundling is great, but as your app grows, your bundle will grow too. Especially if you are including large third-party libraries.
  A large bundle takes longer to load, especially on slower networks or mobile devices, leading to increased load times.
   To avoid winding up with a large bundle, it’s good to get ahead of the problem and start “splitting” your bundle. 
@@ -613,7 +541,7 @@ Throttling is useful in scenarios like scroll event handlers, resize event handl
 Debouncing is typically used in scenarios where a function is called repeatedly, such as in response to user input like typing.
 
 
-********************************* ProtoType ***********************************
+********************************* ProtoType **************************************************************
 
 every function in JavaScript has a prototype property that references an object.
 it allows us to share methods across all the instances of a function. 
@@ -663,6 +591,18 @@ By default, the prototype object will have a constructor property which points t
 3.  Custom validation  ::  allows you to implement business-specific logic (based on requirement like u have implemented for LDAP URL)  
 
 4. Using the library like formik or react-hook-form
+
+
+**************************custom Hooks*********************************
+ Custom Hooks :  Custom Hooks are a powerful feature that allows us to extract component common logic into reusable functions. 
+             These Hooks are JavaScript functions that can use other Hooks provided by React. They enable us to organize logic into separate, reusable modules.
+
+ Cons of Custom Hooks :
+  1) We can identify the repetitive logic across your components and we can seperate it and reuse it.
+  2) Use React's built-in Hooks within your custom Hook as needed.
+   3) Return anything that will be useful for the component using this Hook.
+
+   NOte :  always start with 'use'  e.g useInput or useCounter
 
 `
 
