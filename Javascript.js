@@ -1,22 +1,23 @@
-  1) What is Javascript ??
+`
+1) What is Javascript ??
   JavaScript is a scripting/Programing language for creating dynamic web page content. We can updated HTML and CSS using Javascript.
   Javascript is a synchronous, single-threaded language.
  
 Single Threaded :
-This means that it has only one call stack and one memory heap. Only one set of instructions is executed at a time.
+Single threaded means that it has only one call stack and one memory heap. Only one set of instructions is executed at a particular time.
 
-Javascript is Synchronous and blocking in nature. meaning that code is executed line by line and one task must be completed before the next one begins.
+Javascript is Synchronous and blocking in nature. meaning that code will executed line by line and one task must be completed before executing the next one task.
 
 Javascript is loosely typed language.
 
 Loosly Typed/ Weakly Typed Language :
-               In a loosely typed language, data types are flexible and implicit conversions are often performed automatically.
-         Variables can change their data type during execution without explicit casting.
+               In a loosely typed language, data types are flexible for a variable and implicit conversions are often performed automatically.
+                Variables can change their data type during execution without explicit casting.
  
 Strongly/strict Typed Language : 
  
-     Variables have fixed data types and cannot change their type implicitly.
-   Tightly typed languages often require explicit type conversions and provide better type safety.
+     Variables have fixed data types and cannot change their data type during execution implicitly.
+    Tightly typed languages often require explicit type conversions and provide better type safety.
 
 JAVA   VS   JAVASCRIPT :
     Javascript is a client side scripting language while Java is a object oriented programming language.
@@ -24,10 +25,17 @@ JAVA   VS   JAVASCRIPT :
 Data Types in Javascript :
     Primitive Data Type : Number, Strings, Boolean, Null , Undefined
     User Defined Data Type : Object, Array, Function
+
+    Is JavaScript a compiled or interpreted language? **********************************8
+
+    JavaScript is an interpreted language. This means that the JavaScript code is not compiled before it is executed. Instead, the JavaScript engine interprets the code at runtime.
+
+What are Scripting Languages?
+   A scripting language is a programming language that executes the instruction within a special run-time environment by an interpreter instead of a compiler. They are usually short, fast, and interpreted from source code
  
 ----------------------------------------------------------------------------------------------------
 
-  2) Global Execution Context :  whenever a javascript code run, there is a global execution context has been created and this GEC been pushed into
+  2) Global Execution Context :  whenever a javascript code run, there is a global execution context has been created and this GEC been pushed into the
      call stack.
 
      Every GEC has 2 part.  
@@ -35,9 +43,9 @@ Data Types in Javascript :
       B) Code Component (thread of execution)
 
     *Execution Context*
-       Each execution context has two phases:
-       A)  the Memory Creation phase and 
-       B) the execution phase.
+       Javascript program runs into two phases:
+       A) the Memory Creation phase and 
+       B) the code execution phase.
 
 
 4. this keyword ???
@@ -68,14 +76,14 @@ Execution Context :  Execution Context has two main component .
 
 Whenever is a JS program is run , execution context is being created known as global execution context. Every GEC has been created in two phases.
 
-A) Memory Creation Phase : This is the first phase and in this phase JS engine read all the program and assign memory to variable and function inside the memory component/gloabal space. Initially all the variable assigned as undefined value by JS engine
-and for function it copied all the code of function and assign memory to it.
+A) Memory Creation Phase : This is the first phase and in this phase JS engine read all the program and assign memory to variable and function inside the memory component/gloabal space. Initially all the variable assigned as undefined value by JS engine and for function it copied all the code of function and assign memory to it.
+Once this is done , then again JS engine execute the code from start, that is code execution phase.
 
 
-B) Code Execution Phase : In this phase JS Engine read all the code line by line again and assigned actual value to variable and do actual code execution. 
+B) Code Execution Phase : In this phase JS Engine read all the code line by line again and assigned actual value to variable and do the actual code execution. 
 In this phase if it encounter the function then it do nothing till function call.
 
-: whenever a function is invoked, a new execution context has been created inside code component and it follow the same process as follow global context execution. 
+: whenever a function is invoked, a new execution context has been created for this function inside code component and it pushed to the call stack and it follow the same process as follow global execution context. 
 Like memory creation phase(passed parameter is also a variable) and code execution phase.
 
 Whenever a return statement encounter it means now return the control of the program, to the place where this function was invoked and this local execution context will be removed from memory.
@@ -98,7 +106,7 @@ also known as Program stack, control stack, runtime stack, machine stack, Execut
 ------------------------------------------------------------------------
 Parameter vs Arguments :   
 Argument :  An argument is a value which is passed to a function when the function is called.
-Parameter:  function which receive the value in function definition known as Parameter.
+Parameter:  A function which receive the value in function definition known as Parameter.
 
 Note : we can use rest parameter (...) to receive a parameter in form of array.
 
@@ -106,8 +114,8 @@ Note : we can use rest parameter (...) to receive a parameter in form of array.
 
 Hoisting is a phenomena where u can access variables and functions even before you have initialized it.
 
-This is happening, answer is lying in memory creation phase where all variable inside the code initialized with undefined and 
-function copied being created inside the memory.
+This is happening, answer is lying in memory creation phase, where all variable initialized with undefined (first phase) and 
+function copied inside the memory as it is.
 
 So variables and regular/normal function both are hoisted in JS.
 ex->
@@ -132,20 +140,20 @@ const x = function (){
 
  
 Note :
-     Even JS file is empty , global execution context has been created and it created a window and this global object which has lot of inbuilt method and 
+     Even JS file is empty , global execution context has been created and it created a window object and this object, global object which has lot of inbuilt method and 
      function which can be use anywhere in program. These functionality is given by JS engine.
 
            window === this (at global level)
 
-Global Space : any js code which is not in any inside function and It is attached to global object (window)
+Global Space : any javascript code which is not define in any function that is attached to the global object (window).
 
 Let and const declarations are Hoisted. These are in temporal dead zone for the time being. 
 Memory is allocated to the variables but not in global space , they are stored in a different memory space(script) than global. 
-You cannot access it without initialize first.
+You cannot access these variable (let & const) without initialize first.
 
 Temporal Dead Zone :
 
-The Temporal Dead Zone (TDZ) refers to the time period between allocating memory and the actual declaration of a variable. 
+The Temporal Dead Zone (TDZ) refers to the time period between allocating memory and the initializing of a variable. 
 During this time, accessing the variable results in a Reference Error.
 
 TDZ is the time since this let and const variable are hoisted and till it is initialized some value. That time known as TDZ.
@@ -275,7 +283,7 @@ Ex-     let a=100;
 
 Closure : Closure is a function along with it lexical scope bundle together known as closure.
 
- 2nd -> A closure is a combination of a function along with the lexical environment bundled together known as closure.
+ 2nd -> A closure is a combination of a functions along with the lexical environment bundled together known as closure.
 
  
 
@@ -301,21 +309,31 @@ Whenever a function is returned in case of closure ,it always remember it's lexi
  
 ----------------------------------------------------Functions------------------------------------------------------
 
-Function :  A reusable block of code that  perform a particular task known as function.
+Function :  A reusable block of code that perform a particular task known as function.
 
 Type of Function : 
 
 Function Statement or function declaration:  
                Function Declaration is the traditional way to define a function.
-               We start declaring using the keyword “function”. Then we write the function name and the parameters.
+               We start declaring function, using the keyword “function”. Then we write the function name and the parameters.
  
         if we r creating a function using function keyword and not assigning in any variable that is function statement.
 
-The Function Statement or function declaration is hoisted, which means it can be called before it's defined in the code.
+The Function Statement or function declaration is hoisted, which means it can be called before it's initialization.
 
-Ex - function add(){
+Ex - 
+
+function add(){
     console.log('Function Statement')
 }
+
+Ex->
+sum(3,4) // Work,  return 7 
+
+function sum(a,b){
+return a+b;}
+
+
 
 Function expression :    if we r creating a function using function keyword and assigning return value in any variable that is function expression.
                        Here, the whole function is an expression and the returned value is stored in the variable. We use the variable name to call the function.
@@ -325,6 +343,8 @@ Function expression :    if we r creating a function using function keyword and 
  }
  x();
 
+
+It is treated as a variable. If u call before initialization, it holds value undefined like variable.
 It's not hoisted. You must define it before calling it.
 
 
@@ -344,9 +364,9 @@ The main difference in both is hoisting , function statement can be hoisted but 
  
 
  
-    Named function Expression:
+Named function Expression:
 
-    A named function expression is a type of function expression where the function being defined has a name.
+    A named function expression is a type of function expression where the function is defined using function statement and assign to the variable.
 
     Ex->    const add = function xyz(){
         Console.log('add called')  // give no error return function
@@ -370,11 +390,12 @@ Ex-> function (){………}
 
  
 First Class Function/citizens : 
-        The ability of function to be used as value, can be passed as argument in another function and 
-        can be returned from a function known as first class function. It is a programming concept. Many languages supports it.
+        The ability of function to be used as value, can be passed as an argument in another function and 
+        can be returned from a function known as first class function. It is a programming concept. Many languages supports it. 
+ When a function is treated as a variable , then it is a first class fucntion.
 
 High Order Functions : 
-             Higher-Order Functions are functions that can accept other functions as arguments and return functions as a result known as HOF, 
+             Higher-Order Functions are functions that can accept other functions as an arguments and return functions as a result known as HOF, 
 
      ex->        fucntion add(a,b){
                 return a+b
@@ -388,7 +409,7 @@ High Order Functions :
 
 Callback Function : 
 
-A callback function is a function that is passed as an argument to another function.
+A callback function is a function that is passed as an argument to the another function.
 
 Advantages :
 
@@ -416,8 +437,11 @@ It takes 2 argument resolve and reject.
 If there are multiple promise which are independent so we can pass as an array in promise.
  New Promise.all([p1,p2,p3])
 
+Promise.all() method returns an array as an output containing promise data inside several indexes. It immediately fail if one of the promises failed.
+Promise.allSettled() method returns an array of objects and each of these objects further contains two properties further status and value. It will wait to settle all the promises regardless of failed promises, and return and array of promises result with success and fail.
+
 Advantage :
-                       1. Error Handling
+                       1. improve Error Handling
                        2. Code readability
                        3. avoid callback hell
                        4. chaining multiple asynchronous operations
@@ -448,7 +472,7 @@ Ex->
         console.log(error); 
         });
 
- Chaining Promises : Promise chaining is the practice of sequentially executing asynchronous operations using multiple then() calls on a Promise.
+ Chaining Promises : Promise chaining is the process of sequentially executing asynchronous operations using multiple then() calls on a Promise.
 
  Ex->
     fetchData()
@@ -464,7 +488,7 @@ Ex->
     });
 
 
-NOte : Promises have three states: pending (initial state), fulfilled (successful completion), and rejected (failure).
+NOte : Promises have three states: pending (initial state), fulfilled (successful completion), and rejected (failure).]l
        Use promise.all() if you want to resolve the promise only if all of the promise objects resolve and reject if even one rejects.
 
 
@@ -472,6 +496,8 @@ Async-Await :
 
 async and await are modern JavaScript features introduced in ECMAScript 2017 (ES8) that simplify asynchronous code. 
 They provide a more readable and intuitive way to work with asynchronous operations compared to traditional callback-based or promise-based approaches.
+
+The async/await, introduced in ES2017, provides a more readable and cleaner way to handle asynchronous operations compared to callbacks and promises. An async function always returns a promise, and within such a function, you can use await to pause execution until a promise settles.
 
  Advantages of Async and Await
         Improved Readability: Async and Await allow asynchronous code to be written in a synchronous style, making it easier to read and understand.
@@ -481,21 +507,22 @@ They provide a more readable and intuitive way to work with asynchronous operati
 
 Garbage Collection :
 
-   Garbage collection in JavaScript is the process by which the JavaScript engine automatically reclaims memory that was previously allocated to objects
+   Garbage collection is the process by which the JavaScript engine automatically reclaims the memory that was previously allocated to an objects
     that are no longer needed or accessible.
-
-Note : EventListeners are heavy , we need to remove it after using it because it form closure and has a callback function.
+    The JavaScript engine uses automatic garbage collection. JavaScript automatically manages memory by freeing up space used by objects no longer needed. This algorithm is called Mark and Sweep, which is performed periodically by the JavaScript engine.
+ck function.
 
  
 ---------------------------------------------------------- Currying ------------------------------------------------------------
 Currying : 
-              Currying in JavaScript is a process that allows you to transform a function with multiple arguments into a sequence of nesting function, each taking a single argument.
+              Currying is a process that allows you to transform a function with multiple arguments into a sequence of nesting function, each taking a single argument.
 
 
               This creates a chain of functions, where each function returns another function until the final result is achieved.
 
 Advantages of currying : 
-    It reduces the chances of error in our function by dividing it into multiple smaller functions that can handle one responsibility.
+    It reduces the chances of error in our function by dividing it into multiple smaller function
+Note : EventListeners are heavy , we need to remove it after using it because it form closure and has a callback that can handle one responsibility.
     It makes the code more readable
     Creating high order function
  
@@ -510,24 +537,9 @@ Const add = function (a){
 
 -------------------------------------------------------- Event Loop ---------------------------------------------------------------------------------------                 
         
-Event Loop :  Event loop is a mechanism that allows JavaScript to perform non-blocking I/O operations despite being single-threaded.
+Event Loop :  Event loop is a mechanism in jS  that allows to perform non-blocking I/O operations despite being single-threaded.
             Event loop continuos monitoring call stack and callback queue, whenever call stack is being empty and any task is waiting for executing in callback
             queue, it immediately popped out from CBQ and put into the call stack.
-
- 
-Note :  THere is a browser web api. Browser has more functionality that JS which we r dealing with daily but we don't know.
-         console.log(), DOM api, Fetch(), setTimeout(), localStorage() etc...   all these feature or functionality is provided by browser web api not by JS.
-
-         there is a microtask queue is also there which is highest priority than callback queue. But few important task take place in microtask queue like 
-          data fetching, Promises, MutationObserver
-
-macrotasks (callback queue): setTimeout, setInterval, setImmediate, requestAnimationFrame, I/O, UI rendering
-microtasks: process.nextTick, Promises, queueMicrotask, MutationObserver
-
-Note : due to highest priority, if microtask is getting continuously promises, in this case callback queue never gets a chance to run then this Scenario
-       knows as Starvation.
-
-       Event Loop :
 
 In JavaScript, the event loop is a crucial mechanism for managing asynchronous operations and handling events. It allows the execution of non-blocking code.
 
@@ -535,6 +547,19 @@ The event loop continuously monitors the call stack and the Callback queue and m
 
    When the call stack is empty (i.e., no code is executing), the event loop takes the first event from the microtask queue(if anything is there otherwise it will pick from callback queue) and
     pushes callback function onto the call stack.
+ 
+
+Note :  There is a browser web api. Browser has more functionality that JS which we r dealing with daily but we don't know.
+         console.log(), DOM api, Fetch(), setTimeout(), localStorage() etc...   all these feature or functionality is provided by browser web api not by JS.
+
+         there is a microtask queue also, which is highest priority than callback queue. But few important task take place in microtask queue like 
+          data fetching, Promises, MutationObserver etc.
+
+macrotasks (callback queue): setTimeout, setInterval, setImmediate, requestAnimationFrame, I/O, UI rendering
+microtasks: process.nextTick, Promises, queueMicrotask, MutationObserver
+
+Note : due to highest priority, if microtask is getting continuously promises, in this case callback queue never gets a chance to run then this Scenario
+       knows as Starvation.
 
 Microtask queue Vs Callback Queue:
 
@@ -584,7 +609,7 @@ In case of InnerText HTML tags within the content are treated as literal text an
 
 ------------------------------------------------------Event Bubbling, Event Propagation----------------------------
 Event Bubbling : 
-       Event Bubbling is a concept in the DOM where an child node receives and event and it propagated to its parent and ancestors, untill it reaches to the root element.
+       Event Bubbling is a concept in the DOM where an child node receives an event and it propagated to its parent and ancestors, untill it reaches to the root element.
 Consider a situation an element is present inside another element and both of them handle an event.
  When an event occurs in bubbling, the innermost element handles the event first, then the outer, and so on.
 
@@ -595,19 +620,44 @@ Consider a situation an element is present inside another element and both of th
         console.log("button was clicked")
     })
 
+Event Delegation :  Event delegation is a pattern based upon Event Bubbling. With this pattern, instead of adding event listeners to every child element, you only need to bind the event listener to the parent element.
+
+Due to event bubbling, event triggered on the child elements will bubble up to the parent element.
+
+ex-  <ul onclick="alert(event.type + '!')">
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>
+</ul>
+
+Here we don't have to add event listener on every li, instead I can add on ul and capture the event and do the logic.
+
+Advantages : 
+   1. Low Event Management Cost.
+                With event delegation, we don't have to add event listners on every elemnet.
+
+   2. Reduce memory allocation and prevent memory leak.
+
+            As only one single handler is needed, the total memory allocation goes down. For application that scales small and has short life span, it makes little difference. However, for long-lived applications, it can be meaningful.
+
+
+Event Capturing :
+    Event capturing is the first phase of event propagation. In this phase, the event is captured by the outermost element and propagated to the inner elements. It is also known as trickling. It is the opposite of event bubbling.    
+
+
 ------------------------------------------------------------------------ Type of Storage in browser -------------------------------------------
 
 The Web Storage API is a simple syntax for storing and retrieving data in the browser
 
 Local Storage :
 
-The localStorage object stores data with no expiration date.
+The localStorage object stores the data with no expiration date.
 
 The data is not deleted when the browser is closed, and are available in future sessions.
 
 Session Storage :
 
-The sessionStorage object stores data for only one session.
+The session Storage object stores data for only one session.
 
 (The data is deleted when the browser is closed).
 
@@ -632,7 +682,7 @@ A Server API can extend the functionality of a web server.
 
  
 
-History.
+History()
 
 back()
 
@@ -686,3 +736,67 @@ Create a code to implement Bubble Sort.
 In a range of min to max, write code for generate random numbers.
 
 Create an algorithm to determine the frequency in which a word appears in an article.
+
+
+*********************ProtoType *********************
+
+The prototype chain in JavaScript refers to the chain of objects linked by their prototypes. When a property or method is accessed on an object, JavaScript first checks the object itself. If it doesn't find it there, it looks up the property or method in the object's prototype. This process continues, moving up the chain from one prototype to the next, until the property or method is found or the end of the chain is reached (typically the prototype of the base object, which is null). The prototype chain is fundamental to JavaScript's prototypal inheritance model, allowing objects to inherit properties and methods from other objects.
+
+*********************** IIFE ****************************
+The IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined.
+
+(function () {
+  console.log('Hello Roadmap!');
+})();
+The IIFE is frequently used to create a new scope to avoid variable hoisting from within blocks.
+
+
+******************* strict mode *************
+
+To enable strict mode in JavaScript, you need to add the following line at the top of the file or function 'use strict';.
+
+******************* What are Heap and Stack in JavaScript? ****************
+
+
+**********************************************************handle undefined value ***************************
+  The Nullish Coalescing Operator (??) returns the right operand if the left one is null or undefined, otherwise, it returns the left operand. It's useful for setting default values without considering falsy values like 0 or '' as absent.
+
+console.log(null ?? 'hello'); // hello
+console.log(undefined ?? 'hello'); // hello
+console.log('' ?? 'hello'); // ''
+console.log(0 ?? 'hello');
+
+**********************************************************************************************************************************
+
+How to scroll to the top of the page using JavaScript?
+window.scrollTo(0, 0);
+
+How to get viewport dimensions in JavaScript?
+You can use window.innerWidth and window.innerHeight to get the viewport dimensions.
+
+*********************************************************** Custom Hooks ************************************************************
+
+Custom hooks is basically a JS finction whose name start with 'use'.
+A custom Hooks can also call the other hooks if rrequred.
+
+Why ??
+ -> Share the logic between components ,  alternative of HOCs and render props
+
+ *************************************************************************************************************************************
+
+ Custom Hooks :  Custom Hooks are a powerful feature that allows us to extract component logic into reusable functions. These Hooks are JavaScript functions that can use other Hooks provided by React. They enable us to organize logic into separate, reusable modules.
+
+ Cons of Custom Hooks :
+  1) We can identify the repetitive logic across your components and we can seperate it and reuse it.
+  2) Use React's built-in Hooks within your custom Hook as needed.
+   3) Return anything that will be useful for the component using this Hook.
+
+   NOte :  always start with 'use'  e.g useInput or useCounter
+
+
+********************************************************************************************************************************
+Compilers and interpreters are both programs that translate source code into a lower-level programming language, but they differ in how they do it: 
+Compilers
+Translate the entire source code before executing it. Compilers are important for catching syntax and semantic errors before running the code, which can save time and prevent crashes. However, compilation can be slow, especially for large programs. Compilers also require a lot of memory to store the entire program and its compilation data. 
+Interpreters
+Translate the source code line-by-line as it's being executed. Interpreters make it easier to identify errors and debug the code because they translate each line into machine instructions before executing the next line. 
