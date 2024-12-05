@@ -6,10 +6,10 @@ What is React ??
 It follows the Component based architecture.
 
 Why React ??
- 1) Component Based Architecture : We can break a big component into smaller component and make it reusable also, later we can merge all these small small component together for  the result.
+ 1) Component Based Architecture : We can break a big component into smaller component and make it reusable also, later we can merge all these small small component together for  the bigger result.
  2) Use of Virtual DOM : 
                    DOM :  DOM stands for ‘Document Object Model’. 
-                   it is a tree structured representation of the HTML elements that are present in a webpage. DOM represents the entire UI of your application. 
+                   it is a tree like structure representation of the HTML elements that are present in a webpage. DOM represents the entire UI of your application. 
                    The DOM is represented as a tree data structure.    
         Disadvantages of real DOM :
             Every time the DOM gets updated, the updated element and its children have to be rendered again to update the UI of our page. 
@@ -29,7 +29,7 @@ When code updated in the JavaScript file, these things happen:
 Note : Manipulating Real DOM is slow, but manipulating Virtual DOM is fast as nothing gets drawn on the screen.   
 
 When anything new is added to the application, a virtual DOM is created and it is lightweight copy of Real-DOM.
-React maintains two Virtual DOM at each time, one contains the updated Virtual DOM and one which is just the pre-update version of this updated Virtual DOM.
+React maintains two Virtual DOM at each time, one contains the updated value and second one which is just the pre-update version of this updated Virtual DOM.
  Now it compares the pre-update version with the updated Virtual DOM and figures out what exactly has changed in the DOM like which components have been changed. This process of comparing the current Virtual DOM tree with the previous one is known as ‘diffing’. Once React finds out what exactly has changed then React-DOM updates those objects only, on real DOM. 
 
 Note:  It is React-DOM's task to update the real DOM not react.
@@ -88,7 +88,7 @@ Advantages of Diffing Algorithm:
     Results in faster respose while change by reducing the unwated and unnecessary re-renderings.
 
 -----------------------------------------------------------React Hooks ----------------------------------------------------------------------------
-  React Hooks provide ability to use ,states and other React features with the help of functional component wihtout writing class components.   
+  React Hooks provide ability to use React features with the help of functional component wihtout writing class components.   
   Hooks are introduced in React 16.8.                                    
 
   Types of React Hooks
@@ -130,7 +130,7 @@ The three phases are: Mounting, Updating, and Unmounting.
 1. Initialization Phase : 
     In this phase, the developer has to define the props and initial state of the component this is generally done in the constructor of the class component.
 
-1) Mounting Phase :  Mounting is the first phase of the component lifecycle. In this Phase the component is rendered for the first time on the webpage and  mounted on the DOM.
+1) Mounting Phase :  Mounting is the first phase of the component lifecycle. In this Phase the component is rendered for the first time on the webpage and mounted on the DOM.
   ex->  
    constructor():
      Method to initialize state and bind methods. Executed before the component is mounted.
@@ -141,6 +141,7 @@ The three phases are: Mounting, Updating, and Unmounting.
 
 2) Updating Phase : A component is updated whenever there is a change in the component's state or props.
    ex->
+	render() -- it will call first then next one
       componentDidUpdate() Function :
             Similarly this function is invoked after the component is re-rendered i.e. this function gets invoked once after the render() function is executed after the updation of State or Props.  
             
@@ -156,9 +157,10 @@ What is ES6?
 Why Should I Learn ES6?
     React uses ES6, and you should be familiar with some of the new features like:
 
+  what are the feature introduce in ES6 ?  // what are the feature intriduces in ES6??
     Arrow Functions
-    Variables (let, const, var)
-    Array Methods like .map()
+    Variables (let, const)
+    Array Methods like .map() .filter() .reduce()
     Destructuring
     Modules
     Ternary Operator
@@ -167,23 +169,24 @@ Why Should I Learn ES6?
 ---------------------------------------------------------------** States and Props **------------------------------------------------    
 
 state : State is an objects which hold the data about the component. EVerything in JS is object. state cannot be accessed and modified outside the component, and can only be used inside the component.
+
 Props : props are the way to pass the data from one component to another component.
 
  PROPS                                                                                       STATE
 
-The Data is passed from one component to another.                               	  The Data is passed within the component only.
+The Data is passed from one component to another.                               	  The state can be used within the component only.
 It is Immutable (cannot be modified).	                                                It is Mutable ( can be modified) within component.
 Props can be used with state and functional components.	                             The state can be used only with the state components/class component (Before 16.0).
 Props are read-only.	                                                                    The state is both read and write.
 
 -------------------------------------------------------** Babel and webpack **-----------------------------------------------------------
-Babel is used to transpile the JavaScript code, which can be understand by older browsers, 
-while Webpack is used to bundle and optimize the code.
+Babel is transpiler which is used to transpile the JavaScript code(ES6 and so on) , which can be understand by older browsers, 
+while Webpack is a bundler which is used to bundle and optimize the code.
 
 
 ------------------------------------------------------ Hooks with Example ----------------------------------------------------------------
 
-1) useState :   used for the state management
+1) useState :   used for the state management for functional component.
                 It takes an initial value as an argument and return the updated state and a mehtod which is used for updating the state .
 
                  const [sum, setSum] = useState(0) // 0 is initial value, u can give [], {}, true/false
@@ -200,36 +203,91 @@ while Webpack is used to bundle and optimize the code.
       
       passing [] to dependencies array, we can achieve componentDidMount functionality in functional component using useEffect.
 
-      return and callback function for unmounting.
+      return with callback function for unmounting.
 
       ex->
 
-      useEffect(()=>{
-        
-        return ()=>{
-            console.log('Unmounting)
-            }
-        })
+      1. Example Without Dependencies
 
-Prop Drilling :  Prop drilling refers to the process of passing data from a parent component to deeply nested child components by passing props through intermediate components in which
-  that data is not being used.
+ useEffect(() => {
+  return () => {
+    console.log('Unmounting');
+  };
+});
+
+Behavior:
+This effect runs on every render of the component.
+The cleanup function (return callback) is executed before every re-render and when the component is unmounted.
+
+Explanation:
+Since there is no dependency array, React assumes the effect depends on everything in the component's render scope. Therefore, the effect will run after every render, and the cleanup function will run before the next effect is executed.
+It's useful when you need to handle some state that changes on every render and clean it up before applying new updates.
+
+
+2. Example With an Empty Dependency Array
+
+useEffect(() => {
+  return () => {
+    console.log('Unmounting');
+  };
+}, []);
+
+Behavior:
+This effect runs only once, after the component mounts.
+The cleanup function is executed only when the component is unmounted, not during re-renders.
+
+
+
+Prop Drilling :  Prop drilling refers to the process of passing data from a parent component to deeply nested child components by passing props through intermediate components in which that data is not being used.
 
 to avoid prop drilling situation to use useContext hooks.
 
 Reasons to Avoid Prop Drilling : 
        ***** Performance: Prop drilling can lead to unnecessary re-renders of intermediate components that don’t use the props themselves. This can degrade the performance of the application.
     Maintenance Complexity: Prop drilling makes components tightly coupled because intermediate components have to pass down props that they don't actually use. 
-    Scalability Issues: As the component hierarchy deepens, prop drilling can lead to error-prone code. It can be difficult to track which component needs which props, especially when the data needs to be passed through many layers.
+    Scalability Issues: As the component hierarchy increases, prop drilling can lead to error-prone code. It can be difficult to track which component needs which props, especially when the data needs to be passed through many layers.
     Code Readability: Prop drilling can significantly reduce the readability of the code.
   
 
-3) useContext : The Context API in React provides a way to share values/data between components without having to pass props through every level of the tree. This helps to avoid prop drilling and simplifies state management across deeply nested components.
+3) useContext : The useContext Hooks provides a way to share values/data between components without having to pass props through every level of the tree. This helps to avoid prop drilling and simplifies state management across deeply nested components.
 
 Drawback of UseContext ::
 
    **Performance Issues: Updating the context value can potentially cause unnecessary re-renders in consuming components, even if the changes are not relevant to them.
    ** Scaling Challenges: The Context API can be hard to scale and maintain for a large-scale app. You have to manage the dependencies and updates of multiple contexts, which can lead to code duplication and inconsistency.
    **Lack of Type Safety: Context values are not type-checked by default, which means that incorrect usage or changes in the shape of the context value may not be caught by the compiler or development tools. This can lead to runtime errors and debugging challenges.
+
+Example -> Performance issue ( to Overcome this, split multiple context or use Redux,zustand libraries)
+
+ import React, { createContext, useContext, useState } from 'react';
+
+const UserContext = createContext();
+
+const DisplayUser = () => {
+  const user = useContext(UserContext);
+  console.log('DisplayUser rendered');
+  return <div>User: {user.name}</div>;
+};
+
+const OtherComponent = () => {
+  console.log('OtherComponent rendered');
+  return <div>Other Component</div>;
+};
+
+const App = () => {
+  const [user, setUser] = useState({ name: 'John Doe' });
+
+  return (
+    <UserContext.Provider value={user}>
+      <DisplayUser />
+      <OtherComponent />
+      <button onClick={() => setUser({ name: 'Jane Doe' })}>Update User</button>
+    </UserContext.Provider>
+  );
+};
+
+export default App;
+
 
 4) useReducer :  A useReducer is a hook in React that allows you add a reducer to your component. 
                 It takes in the reducer function and an initialState as arguments. 
@@ -238,6 +296,40 @@ Drawback of UseContext ::
             dispatch: is a function that updates the state value and always triggers a re-render, just like the updater function in useState.
             reducer: is a function that contain all the logic of how the state gets updated. It takes state and action as arguments and returns the next state.
             initialState: contain the initial value and can be of any type. 
+Example ->
+
+import React, { useReducer } from 'react';
+
+// Step 1: Define the reducer function
+const counterReducer = (state, action) => {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    case 'reset':
+      return { count: 0 };
+    default:
+      throw new Error(`Unhandled action type: ${action.type}`);
+  }
+};
+
+const Counter = () => {
+  // Step 2: Initialize useReducer
+  const [state, dispatch] = useReducer(counterReducer, { count: 0 });
+
+  return (
+    <div>
+      <h1>Count: {state.count}</h1>
+      <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>
+      <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
+    </div>
+  );
+};
+
+export default Counter;
+
 
 Note: The action of clicking the button triggers a dispatch function that sends an information of type to the reducer function.
      The dispatching (clicking of the button) causes a re-render of the component. The reducer function conditionally matches the case with the type from the action object and updates the state accordingly after evaluation has taken place.
@@ -262,26 +354,45 @@ NOTE: At dispatch, the reducer function still holds the old value. This means th
             Simple callbacks without dependencies: If a callback function is simple and doesn’t have any dependencies that change frequently, using useCallback might not be necessary. The overhead of memoization could outweigh the potential performance benefit.
             Callbacks used within the same component: If a callback is only used within the same component where it’s created, there’s no need for useCallback as React already handles component re-renders efficiently.
 
-    ex->               function ParentComponent() {
-                            const [count, setCount] = useState(0);
-                            const handleClick = useCallback(() => {
-                                setCount(count + 1);                       // suppose what if this calculation is so expensive, 
-                            }, [count]);                                  // Only recreate handleClick when count changes
-                            return (
-                                <div>
-                                <p>Count: {count}</p>
-                                <ChildComponent onClick={handleClick} />
-                                </div>
-                            );
-                            }
+    example->
+               
+import React, { useState, useCallback } from 'react';
 
-                            function ChildComponent({ onClick }) {
-                            return (
-                                <button onClick={onClick}>Increment</button>
-                            );
-                        }   
+// Child Component
+const Button = React.memo(({ onClick, children }) => {
+  console.log(`${children} button re-rendered`);
+  return <button onClick={onClick}>{children}</button>;
+});
+
+const Counter = () => {
+  const [count, setCount] = useState(0);
+  const [theme, setTheme] = useState('light');
+
+  // useCallback to memoize the increment function
+  const increment = useCallback(() => {
+    setCount((prevCount) => prevCount + 1);
+  }, [count]);
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <Button onClick={increment}>Increment</Button>
+      <Button onClick={toggleTheme}>Toggle Theme</Button>
+      <p>Current Theme: {theme}</p>
+    </div>
+  );
+};
+
+export default Counter;
+  
                             
      Note : whenever component re-render same reference of handleClick is passed to the child component and when count changes that time it will create new reference of handleClick and passed to child component.  
+
+React.memo is used to memoize the Button component, ensuring it only re-renders if its props change.
 
      Link : ( https://medium.com/@amanrags/usecallback-hook-in-react-2b9346380c04 )
      
@@ -351,9 +462,9 @@ Reference : https://refine.dev/blog/react-useref-hook-and-ref/#using-refs-to-acc
             https://medium.com/@zahidbashirkhan/react-useref-use-cases-with-examples-d7680d48a6e1
 
 
-------------------------------------------------------** Error Boundaries **------------------------------------------------------------------
+------------------------------------------------------*********** Error Boundaries *******************------------------------------------------------------------------
 Error Boundary ::
-    Error boundaries are React components that detect JavaScript errors anywhere in their child component tree, log them, and display a fallback UI.
+    Error boundaries are React components that catches JavaScript errors anywhere in their child component tree, log them, and display a fallback UI.
    
     Fallback UI : Displaying a backup UI instead of actual UI which has been crashed. known as fallback UI.
 
@@ -364,6 +475,28 @@ Error Boundary ::
         Server-Side Rendering
         Errors are thrown in the error boundary itself (mean in the same component where it is defined)
 
+ex-> class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {hasError:false };
+  }
+
+  static getDerivedStateFromError(error) {
+     return { hasError: true };
+ }
+
+  componentDidCatch(error, errorInfo) {
+    console.log(error,  errorInfo)
+  }
+
+  render() {
+    if (this.state.hasError) {
+          <h1> Crashed UI , Error Occured </h1>
+    }
+    return this.props.children;
+  }
+}
+
  Note : Try/Catch: One question which might be tickling in your mind is since Error Boundaries works like Catch, Why not just go with try/catch and why should you learn this new Concept. Well, the answer is try/catch is used with imperative code but As we know that React is declarative in nature, and Error Boundaries help in preserving the declarative nature of React.       
 --------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -371,6 +504,8 @@ Single page application
 
 Long back when a client side made a request to server , server used to send HTML page.
 now  Javascript run in the browser on the loaded page and manipulate the HTML structure(DOM) of the page
+
+*********************************************
 
 Why key attribute is important :  In React, the key attribute is used to uniquely identify the elements in the DOM. When a component is rendered, React tracks the identity of each element, so that it can efficiently update the node if the elements change.
 
@@ -384,8 +519,7 @@ In React , building UI from smaller building block/component known as compositio
 
 Nested Component :
 
-     Nested Components refer to components that are used within other components, enabling a modular approach to build UI in React.JS.
-
+     Nested Components refer to a components that are used within other components, enabling a modular approach to build UI in React.JS.
 
 Wrapper Component :
 
@@ -410,7 +544,7 @@ WrapperComponent.js:
 
 One-way data binding:
 
-  One-way means that the binding happens in one direction. In this case, changes in the data automatically update the UI, but changes in the UI do not automatically update the data. That’s why it is referred to as one-way data binding.
+  One-way means that the binding happens in one direction. In this case, changes in the data/state automatically update the UI, but changes in the UI do not automatically update the data/state. That’s why it is referred to as one-way data binding.
 
 React achieves one-way data binding by using state and props.
 
@@ -458,7 +592,7 @@ What the hell are cleanup functions in react? Super important concept to prevent
 
 *****
 Why do we use React Memo? What are the advantages of React Memo?
-	React. memo() is a Higher Order Component (HOC) that memoizes the passed component along with the  props. It is used for performance optimization by preventing re-render of component unnecessary due to props or state changes.
+	React.memo() is a Higher Order Component (HOC) that memoizes the passed component along with the  props. It is used for performance optimization by preventing re-render of component unnecessary due to props or state changes.
 
 *****
 What is the difference between React memo and use memo?
@@ -468,14 +602,15 @@ React. memo() and useMemo() are essential tools for performance  optimization . 
 When should we not use React Memo?
  
    If the props are static or primitive, using React.memo for the child component will solve the problem. However, problems arise when the prop is not static and is an object.
-So, when parent component re-render and we have object/Array/function type props passed to the child component then using memo doesn’t solve our problem. Because, value of object will be new and child component will re-render. So, using React.memo to child component which takes object as a props doesn’t solve the re-rendering of child problem.
+So, when parent component re-render and we have object/Array/function type props passed to the child component then using memo doesn’t solve our problem. Because, reference of object will be new and child component will re-render. So, using React.memo to child component which takes object as a props doesn’t solve the re-rendering of child problem.
 We can solve this problem using useMemo().
 
 useMemo =>
      In React useMemo Hook returns a memoized value and prevents the application from unnecessary re-renders. It is useful in heavy computations and processes when using functional components. It takes dependencies array as second argument to invoke useMemo() hook.
 
 What is useCallback hook , where to use , what is advantages ??
-The useCallback hook is a built-in hook in React that lets you memoize a function by preventing it from being recreated on every render.
+The useCallback hook is a built-in hook in React that lets you memoize a callback 
+function by preventing it from being recreated on every render.
 
 When you define a function inside a component, it is recreated on every render, even if the component’s state or props have not changed. This can lead to unnecessary re-renders, which can slow down your application’s performance. The useCallback hook helps you avoid this problem by memoizing the function and only recreating it when necessary(when dependencies array changed).
 
@@ -496,12 +631,12 @@ Higher Order COmponent ??
   A higher-order component is a function that takes a component as an argumnet and returns a new component with enhanced functionality. It's essentially a function that wraps around a component to provide additional features or behavior.
 
 Why HOCs ??
- - to share common functionality between components then we can create a HOC and share. similiar like prop Drilling.
+ - to share common functionality between components then we can create a HOC and share.
  Suppose there is nested component. and many component using same function , then we have pass through props to avoid that we can use HOCs.
 
 *************************************************Bundling  Code Splitting************************************
 Bundling ??
- Bundling is the process of following imported files and merging them into a single files: a “bundle”. This bundle can then be included on a webpage to load an entire app at once.
+ Bundling is the process of following importing data from different diferent files and merging them into a single files: a “bundle”. Later This bundle is used to load entire application at once on the web. WebPack is a bundler.
 
 Code Splitting :
     It allows you to split your JavaScript bundle into smaller chunks. With code splitting, you can only load the code that is needed in a particular context, reducing the initial load time and improving the overall user experience. 
@@ -517,8 +652,8 @@ For more Details-> ( https://medium.com/@shriharim006/code-splitting-in-react-op
 
  Render Props :  The Render Props is a technique in ReactJS for sharing code between React components using a prop whose value is a function.
  
- defer vs async :: With async, the script executes as soon as it's downloaded, potentially before the HTML document is fully parsed. With defer, 
- the script executes only after the HTML document is fully parsed, but before the DOMContentLoaded event.
+ defer vs async :: With async, the script executes as soon as it's downloaded, potentially before the HTML document is fully parsed.
+ With defer, the script executes only after the HTML document is fully parsed, but before the DOM Content Loaded event.
 
 
  -----------------------------------Data Binding-----------------------------------------
@@ -570,7 +705,7 @@ then u have to use those line otherwise it will not work.
 By default, the prototype object will have a constructor property which points to the original function or the class that the instance was created from
 
 
-*********************************** Validation in React **************************************************
+*********************************** Validate props in React **************************************************
 
 1. Using PropTypes for Type Checking
     PropTypes allow you to validate the type and presence of props passed to your components.
@@ -594,7 +729,7 @@ By default, the prototype object will have a constructor property which points t
 
 
 **************************custom Hooks*********************************
- Custom Hooks :  Custom Hooks are a powerful feature that allows us to extract component common logic into reusable functions. 
+ Custom Hooks :  Custom Hooks are a powerful feature that allows us to extract component's common logic into reusable functions. 
              These Hooks are JavaScript functions that can use other Hooks provided by React. They enable us to organize logic into separate, reusable modules.
 
  Cons of Custom Hooks :
@@ -603,6 +738,73 @@ By default, the prototype object will have a constructor property which points t
    3) Return anything that will be useful for the component using this Hook.
 
    NOte :  always start with 'use'  e.g useInput or useCounter
+
+Example ====>
+import { useState } from "react";
+
+function useToggle(initialValue = false) {
+  const [value, setValue] = useState(initialValue);
+
+  const toggle = () => setValue((prev) => !prev);
+
+  return [value, toggle];
+}
+
+// Usage
+function App() {
+  const [isToggled, toggle] = useToggle();
+
+  return (
+    <div>
+      <p>{isToggled ? "ON" : "OFF"}</p>
+      <button onClick={toggle}>Toggle</button>
+    </div>
+  );
+}
+
+export default App;
+
+
+*************************Micro-Frontend*******************************
+
+Micro-frontends is an architectural style where the traditionally monolithic frontend codebase is split into smaller , more manageable apps. These apps, or "micro-frontends," can be developed, tested, and deployed independently, enabling teams to work more efficiently and scale their projects more effectively.
+
+Key Concepts in Micro Frontend Architecture:
+  Independence: Each micro frontend is developed, deployed, and scaled independently by different teams. Teams can use their own technology stack (e.g., React for one part, Angular for another) if desired.
+
+  Team Ownership: Each team owns a part of the frontend, similar to how microservices are organized on the backend. For example, one team may own the shopping cart while another owns the product listing.
+
+  Framework Independence: While React is commonly used, micro frontends don't require all components to be built using the same front-end framework. Different parts can be built using different technologies as needed.
+
+  Independent Deployment: Each micro frontend can be deployed independently, meaning a change in one part of the application doesn't require redeploying the entire frontend.
+
+  Composition: The different micro frontends are composed together at runtime, often using techniques like iframes, web components, or module federation (Webpack 5), to create the final application.
+
+
+Benefits of Micro Frontends:
+Scalability: Teams can work on different parts of the app without intervene into other's project.
+Technology Diversity: Teams can choose the technology that best suits their specific use case.
+Autonomous Development: Each part of the application can be developed and deployed independently, which increases speed and reduces risk.
+
+Challenges:
+Complexity: Managing multiple frontends can be complex, especially when it comes to coordinating between teams, handling shared state, or implementing cross-microfrontend communication.
+Performance: Too many independently deployed frontends can lead to increased initial load times, so optimization strategies like lazy loading or caching are crucial.
+Version Control: Maintaining version compatibility between different micro frontends and ensuring that they don't break when deployed independently can be tricky.
+
+************************MonoLithic************************
+A monolithic frontend refers to a traditional approach where the entire front-end of an application is developed, deployed, and maintained as a single unit.A monolithic frontend is centralized, with all components, styles, and logic tightly coupled and interdependent.
+
+
+Drawbacks of a Monolithic Frontend:
+Scalability Issues: As the application grows larger, managing a monolithic frontend can become increasingly complex. Adding new features or making changes becomes slower due to the tightly coupled architecture, and build times can increase significantly.
+
+Deployment Bottlenecks: Even small changes require the entire frontend to be rebuilt and redeployed. This can slow down development, as every team or developer working on the application must wait for the whole app to be deployed for even the smallest updates.
+
+Tight Coupling: Because components and features are tightly coupled, a bug or issue in one part of the application can affect other areas. This tight coupling also makes it difficult for teams to work independently, as they may inadvertently impact other parts of the system.
+
+Limited Technology Choice: The entire frontend must use the same framework, libraries, and tooling. If a particular section of the application might benefit from a different technology, it is difficult (and sometimes impossible) to integrate it into the existing architecture.
+
+Maintenance Overhead: As the application grows, maintaining a monolithic codebase can become challenging. The codebase may become cluttered and harder to refactor or extend over time.
 
 `
 
