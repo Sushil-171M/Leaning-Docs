@@ -1,6 +1,6 @@
 `
 1) What is Javascript ??
-  JavaScript is a scripting/Programing language for creating dynamic web page content. We can updated HTML and CSS using Javascript.
+  JavaScript is a scripting/Programing language for creating dynamic web page content. We can update HTML and CSS using Javascript.
   Javascript is a synchronous, single-threaded language.
  
 Single Threaded :
@@ -20,7 +20,7 @@ Strongly/strict Typed Language :
     Tightly typed languages often require explicit type conversions and provide better type safety.
 
 JAVA   VS   JAVASCRIPT :
-    Javascript is a client side scripting language while Java is a object oriented programming language.
+    Javascript is a client-side scripting language while Java is a object oriented programming language.
 
 Data Types in Javascript :
     Primitive Data Type : Number, Strings, Boolean, Null , Undefined
@@ -53,16 +53,19 @@ What are Scripting Languages?
    In other words, the this references the object that is currently calling the function.
    
  Note:   GEC is cretaed along with window and this object.   window===this //true
-         this is not bind to arraow function/. In arrow function this point to parent scope's object.
+         this is not bind to arraow function/. In arrow function 'this' point to parent scope's object.
          In strict mode this point to undefined and in non strict mode this point to global object.
 
 
 '5. Arrow functions
+        Arrow functions were introduced in the ES6 version of javascript. They provide us with a new and shorter syntax for declaring functions. Arrow functions can only be used as a function expression.
 
 Arrow functions create closures over the this value of the enclosing execution context. 
-In arrow functions, JavaScript sets the this lexically. 
-In a regular function, the this value is dynamically scoped, which means it is determined by how the function is called. 
-In contrast, arrow functions inherit the this value from the enclosing lexical context. 
+
+this keyword always refers to the object that is calling the function. 
+
+In the arrow functions, there is no binding of this keyword. This keyword inside an arrow function does not refer to the object calling it. It rather inherits its value from the parent scope which could be window object or parent scope object. 
+
 This means that the this value inside an arrow function is the same as the this value outside the function.'        
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -76,7 +79,7 @@ Execution Context :  Execution Context has two main component .
 
 Whenever is a JS program is run , execution context is being created known as global execution context. Every GEC has been created in two phases.
 
-A) Memory Creation Phase : This is the first phase and in this phase JS engine read all the program and assign memory to variable and function inside the memory component/gloabal space. Initially all the variable assigned as undefined value by JS engine and for function it copied all the code of function and assign memory to it.
+A) Memory Creation Phase : This is the first phase and in this phase JS engine read all the program line by line and assign memory to variable and function inside the memory component/gloabal space. Initially all the variable assigned as undefined value by JS engine and for function it copied all the code of function and assign memory to it.
 Once this is done , then again JS engine execute the code from start, that is code execution phase.
 
 
@@ -114,7 +117,7 @@ Note : we can use rest parameter (...) to receive a parameter in form of array.
 
 Hoisting is a phenomena where u can access variables and functions even before you have initialized it.
 
-This is happening, answer is lying in memory creation phase, where all variable initialized with undefined (first phase) and 
+This is happening, answer is lying in memory creation phase, where all the variable initialized with undefined (first phase) and 
 function copied inside the memory as it is.
 
 So variables and regular/normal function both are hoisted in JS.
@@ -184,7 +187,7 @@ Scope : Scope means where u can access a variable or function.
 
 Scope is directly dependent on the lexical environment.
 
-lexical environment : lexical  environment is the local memory/scope along with the lexical environment of its parent.
+lexical environment : lexical  environment is the local memory scope along with the parent's memory scope.
 
 lexical means in heirerchy or in a sequance manner or in a order.
 In execution context along with variable and function storing, there is a reference of its lexical parent's also stored.
@@ -252,7 +255,7 @@ Block :
       a block is a set of statements enclosed within curly braces. It is used to combined multiple javascript statement into one group.
 
 Block Scope:
-     Block scope refers to the scope of variables which can be accessed within this block only. let and const has block scope.
+     Block scope refers to the scope of a variables which can be accessed within this block only. let and const has block scope.
 
 Variables declared using let and const are block-scoped, meaning they are accessible only within the block where they are defined in, including any nested blocks.
 
@@ -281,11 +284,9 @@ Ex-     let a=100;
 
 -------------------------------------------------------------------Closure--------------------------------------------------------------------
 
-Closure : Closure is a function along with it lexical scope bundle together known as closure.
+Closure : A Closure is a function along with it lexical scope environemnt, bundle together known as closure.
 
- 2nd -> A closure is a combination of a functions along with the lexical environment bundled together known as closure.
-
- 
+ 2nd -> A closure is a combination of a functions along with the their lexical environment bundled together known as closure.
 
 When a function is defined within another function, the inner function has access to the outer function's variables even after the outer function has finished executing. This is because the inner function maintains a reference to the variables of the outer function's scope, forming a closure.
  
@@ -515,7 +516,7 @@ ck function.
  
 ---------------------------------------------------------- Currying ------------------------------------------------------------
 Currying : 
-              Currying is a process that allows you to transform a function with multiple arguments into a sequence of nesting function, each taking a single argument.
+              Currying is a process that allows you to transform a function with multiple arguments into a sequence of nested function, each taking a single argument.
 
 
               This creates a chain of functions, where each function returns another function until the final result is achieved.
@@ -539,7 +540,7 @@ Const add = function (a){
         
 Event Loop :  Event loop is a mechanism in jS  that allows to perform non-blocking I/O operations despite being single-threaded.
             Event loop continuos monitoring call stack and callback queue, whenever call stack is being empty and any task is waiting for executing in callback
-            queue, it immediately popped out from CBQ and put into the call stack.
+            queue, it immediately popped out from CBQ and pushed into the call-stack.
 
 In JavaScript, the event loop is a crucial mechanism for managing asynchronous operations and handling events. It allows the execution of non-blocking code.
 
@@ -558,7 +559,7 @@ Note :  There is a browser web api. Browser has more functionality that JS which
 macrotasks (callback queue): setTimeout, setInterval, setImmediate, requestAnimationFrame, I/O, UI rendering
 microtasks: process.nextTick, Promises, queueMicrotask, MutationObserver
 
-Note : due to highest priority, if microtask is getting continuously promises, in this case callback queue never gets a chance to run then this Scenario
+Note : due to highest priority, if microtask is getting promises continuously , in this case callback queue never gets a chance to run then this Scenario
        knows as Starvation.
 
 Microtask queue Vs Callback Queue:
@@ -581,7 +582,7 @@ Global Variable: Global variables are those variables which is defined outside t
 
 NULL:   Null is a special value in JS that represents empty value or has no value.
 
-Delete:  using delete we can delete any property(or element) from object or objects. But we cannot delete object or array.
+Delete:  using delete we can delete any property(or element) from object or array. But we cannot delete object or array.
                   
 
 This :  ‘this’ stores the current execution context of the JavaScript program. On the global space window === this
@@ -607,9 +608,9 @@ When you set innerHTML, you are providing new HTML content, which can include HT
 
 In case of InnerText HTML tags within the content are treated as literal text and displayed as such
 
-------------------------------------------------------Event Bubbling, Event Propagation----------------------------
-Event Bubbling : 
-       Event Bubbling is a concept in the DOM where an child node receives an event and it propagated to its parent and ancestors, untill it reaches to the root element.
+------------------------------------------------------Event Bubbling, Event Propagation , Event Delegation, Event Delegation----------------------------
+Event Bubbling/Propagation : 
+       Event Bubbling is a concept in the DOM where a child node receives an event and it propagated to its parent and ancestors nodes, untill it reaches to the root element.
 Consider a situation an element is present inside another element and both of them handle an event.
  When an event occurs in bubbling, the innermost element handles the event first, then the outer, and so on.
 
@@ -644,6 +645,231 @@ Advantages :
 Event Capturing :
     Event capturing is the first phase of event propagation. In this phase, the event is captured by the outermost element and propagated to the inner elements. It is also known as trickling. It is the opposite of event bubbling.    
 
+
+Event Propagation Phases
+Event Capturing (Trickling Phase):
+
+The event starts at the outermost parent and moves down to the target element.
+Capturing listeners (useCapture: true) will execute during this phase.
+Target Phase:
+
+The event reaches the target element where it was triggered.
+Listeners directly on the target element will execute during this phase.
+Event Bubbling:
+
+The event then bubbles back up from the target element to the outermost parent.
+Bubbling listeners (useCapture: false) will execute during this phase.
+
+
+*********************************************************** Custom Hooks ************************************************************
+
+Custom hooks is basically a JS finction whose name start with 'use'.
+A custom Hooks can also call the other hooks if rrequred.
+
+Why ??
+ -> Share the logic between components ,  alternative of HOCs and render props
+
+ *************************************************************************************************************************************
+
+ Custom Hooks :  Custom Hooks are a powerful feature that allows us to extract component's common logic into reusable functions. These Hooks are JavaScript functions that can use other Hooks provided by React. They enable us to organize logic into separate, reusable modules.
+
+ Cons of Custom Hooks :
+  1) We can identify the repetitive logic across your components and we can seperate it and reuse it.
+  2) Use React's built-in Hooks within your custom Hook as needed.
+   3) Return anything that will be useful for the component using this Hook.
+
+   NOte :  always start with 'use'  e.g useInput or useCounter
+
+*********************************************************polyfill************************************************************************
+
+A polyfill is a piece of code (usually JavaScript) that implements functionality that is not natively supported in older browsers or environments. 
+
+Why Are Polyfills Needed?
+Web technologies like HTML, CSS, and JavaScript evolve over time. However, not all browsers or environments immediately adopt new features. Polyfills allow developers to use modern functionality without worrying about compatibility issues in older browsers.
+
+For example:
+
+Modern Feature: Promise (introduced in ES6).
+Older Browsers: Do not support Promise.
+
+Polyfill Solution: A library like es6-promise adds Promise support to browsers that lack it.
+
+How Does a Polyfill Work?
+A polyfill checks if the target functionality is already implemented in the current environment.
+If it is not implemented, the polyfill defines it using alternative methods or logic.
+
+Example: Polyfill for Array.prototype.includes
+The Array.prototype.includes method was introduced in ES2016 (ES7). In older browsers, this method is unavailable. Here’s how you could write a polyfill:
+
+if (!Array.prototype.includes) {
+  Array.prototype.includes = function (element, fromIndex) {
+    // Default value for fromIndex
+    fromIndex = fromIndex || 0;
+
+    // Handle negative fromIndex
+    if (fromIndex < 0) {
+      fromIndex = Math.max(this.length + fromIndex, 0);
+    }
+
+    for (let i = fromIndex; i < this.length; i++) {
+      if (this[i] === element) {
+        return true;
+      }
+    }
+    return false;
+  };
+}
+Now, Array.prototype.includes will work in environments that don’t natively support it.
+
+Common Use Cases for Polyfills
+Modern JavaScript Features:
+Promise, fetch, Object.assign, Array.from, etc.
+
+*******************************Object Destructuring********************************************************************
+What is Object Destructuring?
+Object destructuring is a new way to extract elements from an object or an array.
+
+Object destructuring: Before ES6 version:
+const classDetails = {
+  strength: 78,
+  benches: 39,
+  blackBoard:1
+}
+
+const classStrength = classDetails.strength;
+const classBenches = classDetails.benches;
+const classBlackBoard = classDetails.blackBoard;
+The same example using object destructuring:
+
+const classDetails = {
+  strength: 78,
+  benches: 39,
+  blackBoard:1
+}
+
+const {strength:classStrength, benches:classBenches,blackBoard:classBlackBoard} = classDetails;
+
+************************************************call , bind, Apply ***********************************************************
+call, apply, and bind in JavaScript call, apply, and bind are methods in JavaScript used to set the this context of a function. These methods allow you to borrow methods from other objects and execute them in a specific context.
+
+Call Example ::
+          1. Borrowing a Method
+Suppose you have a person object and want to use its greet method for another object.
+
+const person = {
+  name: "Alice",
+  greet: function (age, city) {
+    console.log(`Hello, my name is ${this.name}, I am ${age} years old and I live in ${city}.`);
+  }
+};
+
+const anotherPerson = { name: "Bob" };
+
+// Using call
+person.greet.call(anotherPerson, 30, "New York");
+// Output: Hello, my name is Bob, I am 30 years old and I live in New York.
+
+// Using apply
+person.greet.apply(anotherPerson, [25, "San Francisco"]);
+// Output: Hello, my name is Bob, I am 25 years old and I live in San Francisco.
+
+When to Use Each
+
+Use call:
+	When you want to invoke a function immediately and pass arguments individually.
+Example: Borrowing methods from other objects.
+
+Use apply:
+	When you want to invoke a function immediately and pass arguments as an array.
+	Example: Using functions like Math.max with arrays.
+
+Use bind:
+
+When you want to create a new function with a specific this context and optionally preset arguments.
+Example: Event handlers or creating partially applied functions.
+
+***********************pass by Value and pass by Reference*******************************
+
+Explain passed by value and passed by reference.
+In JavaScript, primitive data types are passed by value and non-primitive data types are passed by reference.
+
+**********************Prototype*************************************
+
+22. What are object prototypes?
+All javascript objects inherit properties from a prototype. For example,
+
+Date objects inherit properties from the Date prototype
+Math objects inherit properties from the Math prototype
+Array objects inherit properties from the Array prototype.
+
+On top of the chain is Object.prototype. Every prototype inherits properties and methods from the Object.prototype.
+
+A prototype is a blueprint of an object. The prototype allows us to use properties and methods on an object even if the properties and methods do not exist on the current object.
+
+******************************Constructor Function in JS ***************************
+
+Constructor functions are used to create objects in javascript.
+
+When do we use constructor functions?
+
+If we want to create multiple objects having similar properties and methods, constructor functions are used.
+
+Note- The name of a constructor function should always be written in Pascal Notation: every word should start with a capital letter.
+Example:
+
+function Person(name,age,gender){
+  this.name = name;
+  this.age = age;
+  this.gender = gender;
+}
+
+
+var person1 = new Person("Vivek", 76, "male");
+console.log(person1);
+
+var person2 = new Person("Courtney", 34, "female");
+console.log(person2);
+
+*****************************Rest Parameter vs Spread Operator*********************************
+
+What is the rest parameter and spread operator?
+Both rest parameter and spread operator were introduced in the ES6 version of javascript.
+
+Rest parameter ( … ):
+
+It provides an improved way of handling the parameters of a function.
+Using the rest parameter syntax, we can create functions that can take a variable number of arguments.
+Any number of arguments will be converted into an array using the rest parameter.
+It also helps in extracting all or some parts of the arguments.
+Rest parameters can be used by applying three dots (...) before the parameters.
+
+**Note- Rest parameter should always be used at the last parameter of a function:
+
+Spread operator (…): Although the syntax of the spread operator is exactly the same as the rest parameter, the spread operator is used to spreading an array, and object literals. We also use spread operators where one or more arguments are expected in a function call.
+
+***Note- Key differences between rest parameter and spread operator:
+
+Rest parameter is used to take a variable number of arguments and turns them into an array while the spread operator takes an array or an object and spreads it
+Rest parameter is used in function declaration whereas the spread operator is used in function calls.
+
+******************************create an Object**********************
+
+In JavaScript, how many different methods can you make an object?
+In JavaScript, there are several ways to declare or construct an object.
+
+Object.
+using Class.
+create Method.
+Object Literals.
+using Function.
+Object Constructor
+
+********************************************************************************************************************************
+Compilers and interpreters are both programs that translate source code into a lower-level programming language, but they differ in how they do it: 
+Compilers
+Translate the entire source code before executing it. Compilers are important for catching syntax and semantic errors before running the code, which can save time and prevent crashes. However, compilation can be slow, especially for large programs. Compilers also require a lot of memory to store the entire program and its compilation data. 
+Interpreters
+Translate the source code line-by-line as it's being executed. Interpreters make it easier to identify errors and debug the code because they translate each line into machine instructions before executing the next line.
 
 ------------------------------------------------------------------------ Type of Storage in browser -------------------------------------------
 
@@ -766,6 +992,55 @@ console.log(undefined ?? 'hello'); // hello
 console.log('' ?? 'hello'); // ''
 console.log(0 ?? 'hello');
 
+*********************Generator Function In JS***************************************************************
+
+What are generator functions?
+Introduced in the ES6 version, generator functions are a special class of functions.
+
+They can be stopped midway and then continue from where they had stopped.
+
+Generator functions are declared with the function* keyword instead of the normal function keyword:
+
+function* genFunc(){
+  // Perform operation
+}
+In normal functions, we use the return keyword to return a value and as soon as the return statement gets executed, the function execution stops:
+
+function normalFunc(){
+  return 22;
+  console.log(2); // This line of code does not get executed
+}
+In the case of generator functions, when called, they do not execute the code, instead, they return a generator object. This generator object handles the execution.
+
+function* genFunc(){
+  yield 3;
+  yield 4;
+}
+genFunc(); // Returns Object [Generator] {}
+The generator object consists of a method called next(), this method when called, executes the code until the nearest yield statement, and returns the yield value.
+
+For example, if we run the next() method on the above code:
+
+genFunc().next(); // Returns {value: 3, done:false}
+As one can see the next method returns an object consisting of a value and done properties.  Value property represents the yielded value. Done property tells us whether the function code is finished or not. (Returns true if finished).
+
+Generator functions are used to return iterators. Let’s see an example where an iterator is returned:
+
+function* iteratorFunc() {
+  let count = 0;
+  for (let i = 0; i < 2; i++) {
+      count++;
+      yield i;
+  }
+  return count;
+}
+
+let iterator = iteratorFunc();
+console.log(iterator.next()); // {value:0,done:false}
+console.log(iterator.next()); // {value:1,done:false}
+console.log(iterator.next()); // {value:2,done:true}
+As you can see in the code above, the last line returns done:true, since the code reaches the return statement
+
 **********************************************************************************************************************************
 
 How to scroll to the top of the page using JavaScript?
@@ -773,30 +1048,4 @@ window.scrollTo(0, 0);
 
 How to get viewport dimensions in JavaScript?
 You can use window.innerWidth and window.innerHeight to get the viewport dimensions.
-
-*********************************************************** Custom Hooks ************************************************************
-
-Custom hooks is basically a JS finction whose name start with 'use'.
-A custom Hooks can also call the other hooks if rrequred.
-
-Why ??
- -> Share the logic between components ,  alternative of HOCs and render props
-
- *************************************************************************************************************************************
-
- Custom Hooks :  Custom Hooks are a powerful feature that allows us to extract component logic into reusable functions. These Hooks are JavaScript functions that can use other Hooks provided by React. They enable us to organize logic into separate, reusable modules.
-
- Cons of Custom Hooks :
-  1) We can identify the repetitive logic across your components and we can seperate it and reuse it.
-  2) Use React's built-in Hooks within your custom Hook as needed.
-   3) Return anything that will be useful for the component using this Hook.
-
-   NOte :  always start with 'use'  e.g useInput or useCounter
-
-
-********************************************************************************************************************************
-Compilers and interpreters are both programs that translate source code into a lower-level programming language, but they differ in how they do it: 
-Compilers
-Translate the entire source code before executing it. Compilers are important for catching syntax and semantic errors before running the code, which can save time and prevent crashes. However, compilation can be slow, especially for large programs. Compilers also require a lot of memory to store the entire program and its compilation data. 
-Interpreters
-Translate the source code line-by-line as it's being executed. Interpreters make it easier to identify errors and debug the code because they translate each line into machine instructions before executing the next line. 
+ 
